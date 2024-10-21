@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Telegraf, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    background-color: #9ADAFF;
+    overflow-y: auto; 
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+    width: 360px;
+    max-width: 90%;
+    text-align: center;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: fadeInScale 1s forwards;
+    position: relative;
+    margin: 20px 0; 
+}
+
+@keyframes fadeInScale {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.container img {
+    width: 100px;
+    margin-bottom: 15px;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInDown 1.5s forwards;
+}
+
+@keyframes fadeInDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeIn 1.8s forwards;
+    text-decoration: underline;
+}
+
+.container p {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 2.2s forwards;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 35px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    border-color: black;
+    background-color: #d8d8d8;
+    outline: none;
+    font-size: 14px;
+    font-weight: lighter;
+    transition: border-color 0.3s;
+    color: black;
+}
+
+.input-group input::placeholder {
+    color: black;
+}
+
+.input-group input:focus {
+    border-color: black;
+}
+
+.input-group .icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #00AEEF;
+    opacity: 1;
+}
+
+.input-group .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #00AEEF;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.container button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    background-color: #00AEEF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 2.6s forwards;
+    transition: background-color 0.3s;
+    margin: auto;
+}
+
+.container button:hover {
+    background-color: #005f80;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container a {
+    display: block;
+    margin-top: 15px;
+    font-size: 12px;
+    color: #666;
+    text-decoration: none;
+    opacity: 0;
+    animation: fadeIn 2.8s forwards;
+}
+
+.container a:hover {
+    text-decoration: underline;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+}
+
+.shake {
+    animation: shake 0.3s;
+}
+
+
+.custom-date-input::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+.custom-date-input::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+}
+
+.custom-date-input {
+    padding-left: 40px; 
+}
+
+.input-group select {
+    width: 100%;
+    padding: 12px 40px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    background-color: #d8d8d8;
+    border-color: black;
+    color: black;
+    outline: none;
+    font-weight: lighter;
+    font-size: 1rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    transition: border-color 0.3s;
+}
+
+
+.input-group select:focus {
+    border-color: #00AEEF;
+}
+
+
+.input-group .icon-select {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #00AEEF;
+}
+
+
+.custom-date-input::-webkit-calendar-picker-indicator {
+    color: black;
+    filter: invert(1); 
+    cursor: pointer;
+}
+
+.custom-date-input::-webkit-inner-spin-button {
+    display: none; 
+}
+
+.custom-date-input::-webkit-calendar-picker-indicator {
+    background: black;
+}
+
+.custom-date-input {
+    padding-left: 40px; 
+}

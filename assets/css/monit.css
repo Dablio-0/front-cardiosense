@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #d1e8f4;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    max-width: 50px;
+    height: auto;
+}
+
+.brand-slogan {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.brand-name {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.slogan {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 240px;
+}
+
+.header-icons button, .header-icons .icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #4c8bf5;
+    font-size: 1.5em;
+    transition: color 0.2s, transform 0.2s;
+    margin: 0 5px;
+}
+
+.header-icons button:hover, .header-icons .icon:hover {
+    color: #3a76c5;
+    transform: scale(1.1);
+}
+
+.logout-button, .security-question-button {
+    background-color: transparent;
+    color: #4c8bf5;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 20px;
+    font-size: 1em;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.logout-button:hover, .security-question-button:hover {
+    color: #3a76c5;
+    transform: scale(1.1);
+}
+
+.monitoramento {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #d1e8f4;
+}
+
+.monitoramento h2 {
+    font-size: 1.8em;
+    color: #4c8bf5;
+    margin-bottom: 20px;
+}
+
+.monitoramento p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+.btn-voltar {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px; 
+}
+
+.btn-voltar:hover {
+    background-color: #0056b3;
+}
+
+/* Menu de Perfil */
+.profile-container {
+    position: relative; 
+}
+
+.profile-menu {
+    display: none; 
+    position: absolute;
+    top: 35px; 
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 1000; 
+}
+
+.profile-menu a {
+    display: block; 
+    color: #4c8bf5;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.profile-menu a:hover {
+    background-color: #f0f0f0; 
+}
+
+/* Estilos para a Tabela de Monitoramento */
+.family-monitor {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+    background-color: #4c8bf5;
+    color: #fff;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    font-weight: bold;
+    font-size: 1em;
+}
+
+tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.actions button {
+    background-color: #4c8bf5;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.actions button:hover {
+    background-color: #3a76c5;
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 768px) {
+    .header-icons {
+        width: 200px;
+    }
+
+    .chart-container {
+        width: 90%;
+    }
+
+    table {
+        width: 95%;
+    }
+
+    th, td {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}

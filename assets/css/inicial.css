@@ -1,0 +1,222 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #d1e8f4; 
+    color: #333;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    max-width: 50px; 
+    height: auto;
+}
+
+.brand-slogan {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.brand-name {
+    font-size: 1.2em; 
+    font-weight: bold; 
+}
+
+.slogan {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; 
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 240px; 
+}
+
+.header-icons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #4c8bf5; 
+    font-size: 1.5em; 
+    transition: color 0.2s, transform 0.2s; 
+    margin: 0 5px; 
+}
+
+.header-icons button:hover {
+    color: #3a76c5; 
+    transform: scale(1.1); 
+}
+
+/* Menu de Perfil */
+.profile-container {
+    position: relative; 
+}
+
+.profile-menu {
+    display: none; 
+    position: absolute;
+    top: 35px; 
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 1000; 
+}
+
+.profile-menu a {
+    display: block; 
+    color: #4c8bf5;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.profile-menu a:hover {
+    background-color: #f0f0f0; 
+}
+
+
+main {
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    background-color: #d1e8f4;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 80px 40px; 
+    width: 22%;
+    transition: transform 0.3s ease;
+}
+
+.card {
+    cursor: pointer; 
+    transition: transform 0.2s ease; 
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-icon {
+    font-size: 3em;
+    color: #4c8bf5;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 1.2em; 
+    color: #4c8bf5;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 600; 
+}
+
+.card p {
+    font-size: 1em; 
+    color: #555;
+    margin-top: 0; 
+    line-height: 1.6em; 
+}
+/* widgets */
+.widgets {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.widget {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin: 10px;
+}
+
+.widget h2 {
+    color: #4c8bf5;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#sectionList {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    justify-content: center;
+}
+
+#sectionList li {
+    width: calc(25% - 20px); 
+    height: 150px;
+    margin: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: background-color 0.3s;
+}
+
+#sectionList li:hover {
+    background-color: #e1e1e1;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+        margin-bottom: 30px;
+    }
+
+    .header-icons button {
+        margin-left: 10px; 
+    }
+}

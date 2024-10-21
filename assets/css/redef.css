@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Telegraf, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #9ADAFF;
+    overflow-y: auto;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+    width: 360px;
+    max-width: 90%;
+    text-align: center;
+    animation: fadeInScale 1s forwards;
+}
+
+@keyframes fadeInScale {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.container img {
+    width: 100px;
+    margin-bottom: 15px;
+}
+
+.container h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+
+.container p {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.label {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 35px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    border-color: black;
+    background-color: #d8d8d8;
+    outline: none;
+    font-size: 14px;
+    font-weight: lighter;
+    transition: border-color 0.3s;
+    color: black;
+}
+
+.input-group input::placeholder {
+    color: black;
+}
+
+.input-group input:focus {
+    border-color: black;
+}
+
+.container button, .popup button, .btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    background-color: #00AEEF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+    display: inline-block;
+}
+
+.btn {
+    background-color: transparent;
+    border: 2px solid #00AEEF;
+    color: #00AEEF;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: #00AEEF;
+    color: white;
+    transform: scale(1.02);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
