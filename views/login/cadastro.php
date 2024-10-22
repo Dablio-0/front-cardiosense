@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CardioSense - Cadastro</title>
-    <link rel="stylesheet" href="assets/css/cad.css">
+    <link rel="stylesheet" href="../../assets/css/cad.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="shortcut icon" href="assets/images/cardioicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../assets/images/cardioicon.ico" type="image/x-icon">
 </head>
 
 <body>
     <div class="container">
-        <img src="assets/images/logo.png" alt="Logo CardioSense" class="logo">
+        <img src="../../assets/images/logo.png" alt="Logo CardioSense" class="logo">
         <h1>CardioSense</h1>
         <p>Precisão em cada batida</p>
 
@@ -57,10 +57,10 @@
             <button type="submit">Cadastrar</button>
         </form>
 
-        <a href="views/menu/login.php">Já possui uma conta? Faça login</a>
+        <a href="../../views/login/login.php" >Já possui uma conta? Faça login</a>
     </div>
 
-    <script src="assets/js/cad.js"></script>
+    <script src="../../assets/js/cad.js"></script>
 </body>
 
 </html>

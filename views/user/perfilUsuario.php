@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil do Usuário</title>
-    <link rel="stylesheet" href="assets/css/profile.css">
+    <link rel="stylesheet" href="../../assets/css/profile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="shortcut icon" href="assets/images/cardioicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
         <div class="logo-container">
-            <img src="assets/images/logo.png" alt="CardioSense Logo" class="logo">
+            <img src="../../assets/images/logo.png" alt="CardioSense Logo" class="logo">
             <div class="brand-slogan">
                 <span class="brand-name">CardioSense</span>
                 <span class="slogan">Precisão em cada batida</span>
@@ -23,7 +23,7 @@
         <section class="profile">
             <div class="profile-content">
                 <div class="profile-picture">  
-                    <img src="profile-pic.jpg" alt="Foto de Perfil" class="profile-pic" id="profilePicPreview">
+                    <img src="profile-pic.jpg" alt="" class="profile-pic" id="profilePicPreview">
                     <input type="file" id="change-pic" accept="image/*" title="Clique para alterar a foto de perfil" style="display: none;">
                 </div>
                 <button class="custom-file-upload" onclick="document.getElementById('change-pic').click();">Escolher Foto</button>
@@ -73,10 +73,11 @@
                     <button type="button" onclick="alterar()" class="save-btn">Salvar Alterações</button>
                 </form>
             </div>
-            <button class="btn-voltar" onclick="window.history.back()">Voltar</button>
+            <button class="btn-voltar" onclick="window.location.href='../../views/home.php'">Voltar</button>
+
         </section>
     </main>
 
-    <script src="assets/js/profile.js"></script>
+    <script src="../assets/js/profile.js"></script>
 </body>
 </html>

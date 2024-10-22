@@ -33,14 +33,14 @@ $secoes_acessadas = $_SESSION['secoes_acessadas'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela Inicial</title>
-    <link rel="stylesheet" href="assets/css/inicial.css">
+    <link rel="stylesheet" href="../assets/css/inicial.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="shortcut icon" href="assets/images/cardioicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/images/cardioicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
         <div class="logo-container">
-            <img src="assets/css/logo.png" alt="CardioSense Logo" class="logo">
+            <img src="../assets/images/logo.png" alt="CardioSense Logo" class="logo">
             <div class="brand-slogan">
                 <span class="brand-name">CardioSense</span>
                 <span class="slogan">Precisão em cada batida</span>
@@ -55,8 +55,8 @@ $secoes_acessadas = $_SESSION['secoes_acessadas'];
                         <i class="fas fa-user"></i>
                     </button>
                     <div class="profile-menu" id="profileMenu">
-                        <a href="views/user/perfilusuario.php">Acessar Perfil</a>
-                        <a href="views/login/login.php" class="logout-button">Sair</a>
+                        <a href="../../views/user/perfilusuario.php">Acessar Perfil</a>
+                        <a href="../views/login/login.php" class="logout-button">Sair</a>
                     </div>
                 </div>
             </div>
@@ -65,22 +65,22 @@ $secoes_acessadas = $_SESSION['secoes_acessadas'];
 
     <main>
         <section class="cards">
-            <div class="card" onclick="handleCardClick('Monitoramento', 'views/menu/monitoramento.php')">
+            <div class="card" onclick="handleCardClick('Monitoramento', '../views/menu/monitoramento.php')">
                 <i class="fas fa-heartbeat card-icon"></i>
                 <h3>MONITORAMENTO</h3>
                 <p>Acompanhe os batimentos de seus familiares</p>
             </div>
-            <div class="card" onclick="handleCardClick('Histórico', 'views/menu/historico.php')">
+            <div class="card" onclick="handleCardClick('Histórico', '../views/menu/historico.php')">
                 <i class="fas fa-history card-icon"></i>
                 <h3>HISTÓRICO</h3>
                 <p>Verifique seu histórico de saúde</p>
             </div>
-            <div class="card" onclick="handleCardClick('Consulta', 'views/menu/consulta.php')">
+            <div class="card" onclick="handleCardClick('Consulta', '../views/menu/consulta.php')">
                 <i class="fas fa-stethoscope card-icon"></i>
                 <h3>CONSULTA</h3>
                 <p>Consulte seu ritmo cardíaco</p>
             </div>
-            <div class="card" onclick="handleCardClick('Sobre', 'views/sobre.php')">
+            <div class="card" onclick="handleCardClick('Sobre', '../views/sobre.php')">
                 <i class="fas fa-info-circle card-icon"></i>
                 <h3>SOBRE</h3>
                 <p>Saiba tudo sobre o CardioSense</p>
@@ -97,6 +97,6 @@ $secoes_acessadas = $_SESSION['secoes_acessadas'];
 </div>
 
 
-    <script src="assets/js/inicial.js"></script>
+    <script src="../assets/js/home.js"></script>
 </body>
 </html>

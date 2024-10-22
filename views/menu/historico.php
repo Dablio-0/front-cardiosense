@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Histórico - CardioSense</title>
-    <link rel="stylesheet" href="assets/css/hist.css">
+    <link rel="stylesheet" href="../../assets/css/hist.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="shortcut icon" href="assets/images/cardioicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../assets/images/cardioicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
         <div class="logo-container">
-            <img src="assets/images/logo.png" alt="CardioSense Logo" class="logo">
+            <img src="../../assets/images/logo.png" alt="CardioSense Logo" class="logo">
             <div class="brand-slogan">
                 <span class="brand-name">CardioSense</span>
                 <span class="slogan">Precisão em cada batida</span>
@@ -24,8 +24,8 @@
                         <i class="fas fa-user"></i>
                     </button>
                     <div class="profile-menu" id="profileMenu">
-                        <a href="views/user/perfilusuario.php">Acessar Perfil</a>
-                        <a href="views/login/login.php" class="logout-button">Sair</a>
+                    <a href="../../views/user/perfilUsuario.php">Acessar Perfil</a>
+                    <a href="../../views/login/login.php" class="logout-button">Sair</a>
                     </div>
                 </div>
             </div>
@@ -50,6 +50,6 @@
         </section>
     </main>
 
-    <script src="assets/js/hist.js"></script>
+    <script src="../../assets/js/hist.js"></script>
 </body>
 </html>
