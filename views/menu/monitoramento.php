@@ -25,9 +25,9 @@
                     <button class="profile-button" title="Perfil" onclick="toggleProfileMenu(event)">
                         <i class="fas fa-user"></i>
                     </button>
-                    <div class="profile-menu" id="profileMenu">
-                    <a href="../../views/user/perfilUsuario.php">Acessar Perfil</a>
-                    <a href="../../views/login/login.php" class="logout-button">Sair</a>
+                    <div class="profile-menu" id="profileMenu" style="display: none;">
+                        <a href="../../views/user/perfilUsuario.php">Acessar Perfil</a>
+                        <a href="../../views/login/login.php" class="logout-button">Sair</a>
                     </div>
                 </div>
             </div>
@@ -36,19 +36,45 @@
     
     <main>
         <section class="monitoramento">
-           
             <h2>Monitoramento de Família</h2>
             <p>Acompanhe seus familiares aqui</p>
-             <button class="btn-voltar" onclick="window.history.back()">Voltar</button>
+            <button class="btn-adicionar" onclick="abrirFormularioCadastro()">Adicionar Familiar</button>
+            <div class="family-monitor">
+                <table id="familyTable">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Idade</th>
+                            <th>Último Batimento Registrado</th>
+                            <th>Parentesco</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dados dos familiares serão inseridos aqui pela API -->
+                    </tbody>
+                </table>
+            </div>
+            <button class="btn-voltar" onclick="window.history.back()">Voltar</button>
         </section>
         
+        <!-- Formulário de Cadastro de Familiar (Popup) -->
+        <div class="popup" id="formCadastro" style="display: none;">
+            <div class="popup-content">
+                <h3>Cadastrar Novo Familiar</h3>
+                <label for="family-name">Nome:</label>
+                <input type="text" id="family-name" name="nome" required>
+                <label for="family-age">Idade:</label>
+                <input type="number" id="family-age" name="idade" required>
+                <label for="family-relation">Parentesco:</label>
+                <input type="text" id="family-relation" name="parentesco" required>
+                <div class="popup-actions">
+                    <button onclick="cadastrarFamiliar()">Cadastrar</button>
+                    <button onclick="fecharFormularioCadastro()">Cancelar</button>
+                </div>
+            </div>
+        </div>
     </main>
 
-
-    
-
-    <script src = "../../assets/js/monit.js">
-         
-    </script>
+    <script src="../../assets/js/monit.js"></script>
 </body>
 </html>

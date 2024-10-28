@@ -25,8 +25,8 @@
                         <i class="fas fa-user"></i>
                     </button>
                     <div class="profile-menu" id="profileMenu">
-                    <a href="../../views/user/perfilUsuario.php">Acessar Perfil</a>
-                    <a href="../../views/login/login.php" class="logout-button">Sair</a>
+                        <a href="../../views/user/perfilUsuario.php">Acessar Perfil</a>
+                        <a href="../../views/login/login.php" class="logout-button">Sair</a>
                     </div>
                 </div>
             </div>
@@ -36,7 +36,15 @@
     <main>
         <div class="consulta-container">
             <h2>Consulta de Batimentos Cardíacos</h2>
-            <button id="consultarRitmo" class="check-heartbeat-button">Consultar Batimentos</button>
+            <label for="parenteSelect">Selecione um parente:</label>
+            <select id="parenteSelect" class="parente-select">
+                <option value="" disabled selected>Escolha um parente</option>
+                <option value="parente1">Parente 1</option>
+                <option value="parente2">Parente 2</option>
+                <option value="parente3">Parente 3</option>
+                <!-- Adicione opções dinamicamente se necessário -->
+            </select>
+            <button id="consultarRitmo" class="check-heartbeat-button" disabled>Consultar Batimentos</button>
             <div class="graph-container">
                 <canvas id="batimentosChart"></canvas>
             </div>
