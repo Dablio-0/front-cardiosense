@@ -90,6 +90,7 @@ header {
     transform: scale(1.1);
 }
 
+/* Monitoramento */
 .monitoramento {
     padding: 50px 20px;
     text-align: center;
@@ -108,34 +109,77 @@ header {
     margin-bottom: 30px;
 }
 
-.chart-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-}
-
-canvas {
-    max-width: 100%;
-    height: auto;
-}
-
-.btn-voltar {
-    background-color: #007bff;
+.btn-adicionar, .btn-voltar {
+    background-color: #28a745;
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px; 
+    margin-bottom: 20px;
+    transition: background-color 0.3s, box-shadow 0.3s; /* Adicionado box-shadow */
+}
+
+.btn-adicionar:hover, .btn-voltar:hover {
+    background-color: #218838;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efeito de sombra ao passar o mouse */
+}
+
+.btn-voltar {
+    background-color: #007bff;
 }
 
 .btn-voltar:hover {
     background-color: #0056b3;
+}
+
+/* Formulário de Cadastro */
+.popup {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 300px;
+}
+
+.popup h3 {
+    color: #4c8bf5;
+    margin-bottom: 15px;
+}
+
+.popup label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.popup input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.popup button {
+    background-color: #4c8bf5;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.popup button:hover {
+    background-color: #3a76c5;
 }
 
 /* Menu de Perfil */
@@ -198,22 +242,12 @@ th {
     font-size: 1em;
 }
 
+tbody tr {
+    transition: background-color 0.3s; /* Transição suave */
+}
+
 tbody tr:hover {
-    background-color: #f5f5f5;
-}
-
-.actions button {
-    background-color: #4c8bf5;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.actions button:hover {
-    background-color: #3a76c5;
+    background-color: #f0f0f0; /* Altere a cor de fundo ao passar o mouse */
 }
 
 /* Ajustes Responsivos */
@@ -233,5 +267,17 @@ tbody tr:hover {
     th, td {
         padding: 10px;
         font-size: 0.9em;
+    }
+
+    .popup {
+        width: 90%;
+    }
+
+    .monitoramento h2 {
+        font-size: 1.5em;
+    }
+
+    .monitoramento p {
+        font-size: 1em;
     }
 }

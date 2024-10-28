@@ -171,7 +171,22 @@ footer {
 .profile-menu a:hover {
     background-color: #f0f0f0; 
 }
+.parente-select {
+    width: 100%; 
+    max-width: 300px; 
+    padding: 10px; 
+    margin-bottom: 20px; 
+    border-radius: 5px; 
+    border: 1px solid #ccc; 
+    font-size: 1em; 
+    background-color: #f9f9f9; 
+}
 
+.parente-select:focus {
+    border-color: #4c8bf5; 
+    outline: none; 
+    box-shadow: 0 0 5px rgba(76, 139, 245, 0.5);
+}
 @media (max-width: 768px) {
     .consulta-container {
         width: 90%; 

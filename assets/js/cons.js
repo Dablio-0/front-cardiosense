@@ -102,3 +102,7 @@ function updateRecentSections(secao) {
     if (sections.length > 5) sections.pop(); // Mantém no máximo 5 seções recentes
     localStorage.setItem('secoes_acessadas', JSON.stringify(sections));
 }
+document.getElementById('parenteSelect').addEventListener('change', (event) => {
+    const consultarButton = document.getElementById('consultarRitmo');
+    consultarButton.disabled = !event.target.value; // Habilita o botão se uma opção for selecionada
+});

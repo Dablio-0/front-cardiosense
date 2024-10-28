@@ -1,31 +1,57 @@
 document.addEventListener("DOMContentLoaded", () => {
     const profileIcon = document.querySelector(".profile-container");
-    const profileMenu = document.querySelector(".profile-menu");
+    const profileMenu = document.querySelector("#profileMenu");
     
     // Alternar a exibição do menu de perfil
     profileIcon.addEventListener("click", () => {
         profileMenu.style.display = profileMenu.style.display === "none" || profileMenu.style.display === "" ? "block" : "none";
     });
 
-    // Configurar o evento para ocultar o menu ao clicar fora dele
+    // Ocultar o menu ao clicar fora dele
     document.addEventListener("click", (event) => {
         if (!profileIcon.contains(event.target) && !profileMenu.contains(event.target)) {
             profileMenu.style.display = "none";
         }
     });
 
-    // Botão de Voltar
-    const btnVoltar = document.querySelector(".btn-voltar");
-    btnVoltar.addEventListener("click", () => {
-        window.history.back();
-    });
+    // Função para abrir o formulário de cadastro
+    window.abrirFormularioCadastro = () => {
+        document.getElementById("formCadastro").style.display = "block";
+    };
 
-    // Adicionando evento para botões de ações na tabela de monitoramento
-    const actionButtons = document.querySelectorAll(".actions button");
-    actionButtons.forEach(button => {
-        button.addEventListener("click", (event) => {
-            const familiarId = event.target.dataset.familiarId;
-            window.location.href = `monitorar_familiar.php?id=${familiarId}`;
-        });
-    });
+    // Função para fechar o formulário de cadastro
+    window.fecharFormularioCadastro = () => {
+        document.getElementById("formCadastro").style.display = "none";
+    };
+
+    // Função para cadastrar novo familiar
+    window.cadastrarFamiliar = () => {
+        const nameInput = document.getElementById("family-name");
+        const ageInput = document.getElementById("family-age");
+        const familyRelationInput = document.getElementById("family-relation");
+        const familyTableBody = document.querySelector("#familyTable tbody");
+
+        // Verifica se os campos estão preenchidos
+        if (nameInput.value && ageInput.value && familyRelationInput.value) {
+            // Aqui você deve buscar o último batimento da API
+            const heartbeatValue = "Busque o valor do batimento da API"; // Substitua isso pela lógica da API
+
+            // Cria uma nova linha na tabela com os dados do parente
+            const newRow = familyTableBody.insertRow();
+            newRow.innerHTML = `
+                <td>${nameInput.value}</td>
+                <td>${ageInput.value}</td>
+                <td>${heartbeatValue}</td>
+                <td>${familyRelationInput.value}</td>
+            `;
+
+            // Limpa os campos e fecha o popup
+            nameInput.value = "";
+            ageInput.value = "";
+            familyRelationInput.value = ""; // Limpa o campo de parentesco
+            fecharFormularioCadastro();
+        } else {
+            alert("Por favor, preencha todos os campos.");
+        }
+    };
 });
