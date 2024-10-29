@@ -1,14 +1,38 @@
+// Função para carregar dados do perfil da API
+async function carregarPerfil() {
+    try {
+        const response = await fetch('https://sua-api-endpoint.com/perfil');
+        if (response.ok) {
+            const perfil = await response.json();
+            document.getElementById('name').value = perfil.nome;
+            document.getElementById('email').value = perfil.email;
+            document.getElementById('sexo').value = perfil.sexo;
+            document.getElementById('altura').value = perfil.altura;
+            document.getElementById('peso').value = perfil.peso;
+            document.getElementById('imc').value = perfil.imc; // Assumindo que o IMC já está calculado
+            document.getElementById('profilePicPreview').src = perfil.imagemUrl; // URL da imagem
+        } else {
+            console.error('Erro ao carregar perfil:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Erro na comunicação com a API:', error);
+    }
+}
+
+// Carregar a imagem no avatar
 document.getElementById('change-pic').addEventListener('change', function(e) {
     const file = e.target.files[0];
     if (file) {
         const reader = new FileReader();
         reader.onload = function(event) {
             document.getElementById('profilePicPreview').src = event.target.result;
+            enviarImagemBase64(event.target.result);
         }
         reader.readAsDataURL(file);
     }
 });
 
+// Calcular IMC
 document.getElementById('calcular-imc').addEventListener('click', function() {
     const altura = parseFloat(document.getElementById('altura').value) / 100;
     const peso = parseFloat(document.getElementById('peso').value);
@@ -21,6 +45,29 @@ document.getElementById('calcular-imc').addEventListener('click', function() {
     }
 });
 
+// Enviar a imagem em Base64 para a API
+async function enviarImagemBase64(base64Image) {
+    try {
+        const response = await fetch('https://sua-api-endpoint.com/upload', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ image: base64Image }),
+        });
+
+        if (response.ok) {
+            const result = await response.json();
+            console.log('Imagem enviada com sucesso:', result);
+        } else {
+            console.error('Erro ao enviar a imagem:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Erro na comunicação com a API:', error);
+    }
+}
+
+// Função para alterar dados do perfil
 async function alterar() {
     const nome = document.getElementById('name').value;
     const email = document.getElementById('email').value;
@@ -37,7 +84,6 @@ async function alterar() {
     }
 
     try {
-        // Envia dados para a API
         const response = await fetch('https://sua-api-endpoint.com/perfil', {
             method: 'POST',
             headers: {
@@ -46,7 +92,6 @@ async function alterar() {
             body: JSON.stringify({ nome, email, sexo, password, altura, peso, imc }),
         });
 
-        // Verifica a resposta da API
         if (response.ok) {
             const result = await response.json();
             alert('Alterações salvas com sucesso!');
@@ -58,3 +103,6 @@ async function alterar() {
         alert('Erro na comunicação com a API.');
     }
 }
+
+
+window.onload = carregarPerfil;

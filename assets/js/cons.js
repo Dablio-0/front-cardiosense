@@ -43,8 +43,9 @@ const batimentosChart = new Chart(ctx, {
 
 // Função para consultar o ritmo atual do ESP32
 document.getElementById('consultarRitmo').addEventListener('click', async () => {
+    const parenteId = document.getElementById('parenteSelect').value; // ID do parente selecionado
     try {
-        const response = await fetch('http://<IP_DO_SEU_ESP32>/dados'); // Substitua pelo IP do seu ESP32
+        const response = await fetch(`http://<IP_DO_SEU_ESP32>/dados?parente=${parenteId}`); // Envia o ID do parente
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
         const bpm = data.bpm;
@@ -79,16 +80,13 @@ function toggleProfileMenu(event) {
     profileMenu.style.display = profileMenu.style.display === 'block' ? 'none' : 'block';
 }
 
-
 document.addEventListener('click', () => {
     document.getElementById('profileMenu').style.display = 'none';
 });
 
-
 document.getElementById('btnVoltar').addEventListener('click', () => {
     window.history.back();
 });
-
 
 document.addEventListener('DOMContentLoaded', () => {
     const secao = 'Consulta';
@@ -102,6 +100,7 @@ function updateRecentSections(secao) {
     if (sections.length > 5) sections.pop(); // Mantém no máximo 5 seções recentes
     localStorage.setItem('secoes_acessadas', JSON.stringify(sections));
 }
+
 document.getElementById('parenteSelect').addEventListener('change', (event) => {
     const consultarButton = document.getElementById('consultarRitmo');
     consultarButton.disabled = !event.target.value; // Habilita o botão se uma opção for selecionada

@@ -74,10 +74,9 @@
                 </form>
             </div>
             <button class="btn-voltar" onclick="window.location.href='../../views/home.php'">Voltar</button>
-
         </section>
     </main>
 
-    <script src="../assets/js/profile.js"></script>
+    <script src="../../assets/js/profile.js"></script>
 </body>
 </html>

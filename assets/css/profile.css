@@ -86,12 +86,12 @@ header {
     border-radius: 5px;
     cursor: pointer;
     display: inline-block;
-    margin-top: 10px; /* Espaço acima do botão de upload */
+    margin-top: 10px; 
 }
 
 .form-group {
     margin-bottom: 15px;
-    width: 100%; /* Garante que o form-group use toda a largura */
+    width: 100%;
 }
 
 label {
