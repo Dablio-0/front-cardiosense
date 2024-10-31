@@ -47,10 +47,11 @@
                             <th>Idade</th>
                             <th>Último Batimento Registrado</th>
                             <th>Parentesco</th>
+                            <th>Ações</th> <!-- Nova coluna para ações -->
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Dados dos familiares serão inseridos aqui pela API -->
+                        <!-- A tabela começa vazia, sem entradas pré-cadastradas -->
                     </tbody>
                 </table>
             </div>
