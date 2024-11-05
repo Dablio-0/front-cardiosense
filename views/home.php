@@ -68,17 +68,18 @@ $secoes_acessadas = $_SESSION['secoes_acessadas'];
             <div class="card" onclick="handleCardClick('Monitoramento', '../views/menu/monitoramento.php')">
                 <i class="fas fa-heartbeat card-icon"></i>
                 <h3>MONITORAMENTO</h3>
-                <p>Acompanhe os batimentos de seus familiares</p>
+                <p>Acompanhe seus batimentos cardíacos AO VIVO</p>
             </div>
-            <div class="card" onclick="handleCardClick('Histórico', '../views/menu/historico.php')">
-                <i class="fas fa-history card-icon"></i>
-                <h3>HISTÓRICO</h3>
-                <p>Verifique seu histórico de saúde</p>
-            </div>
+            <div class="card" onclick="handleCardClick('Família', '../views/menu/familia.php')">
+                 <i class="fas fa-users card-icon"></i> 
+                <h3>FAMÍLIA</h3> 
+                 <p>Acompanhe a saúde dos seus familiares</p> 
+                </div>
+
             <div class="card" onclick="handleCardClick('Consulta', '../views/menu/consulta.php')">
                 <i class="fas fa-stethoscope card-icon"></i>
                 <h3>CONSULTA</h3>
-                <p>Consulte seu ritmo cardíaco</p>
+                <p>Consulte seu histórico de ritmos cardíacos</p>
             </div>
             <div class="card" onclick="handleCardClick('Sobre', '../views/sobre.php')">
                 <i class="fas fa-info-circle card-icon"></i>
@@ -88,13 +89,13 @@ $secoes_acessadas = $_SESSION['secoes_acessadas'];
         </section>
         
     </main>
-
+<!--
     <div class="widgets">
     <div class="widget" id="sessions">
         <h2>Seções acessadas recentemente</h2> 
         <ul id="sectionList"></ul>
     </div>
-</div>
+</div> !-->
 
 
     <script src="../assets/js/home.js"></script>

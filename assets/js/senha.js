@@ -15,7 +15,7 @@ document.getElementById("saveButton").addEventListener("click", function() {
             if (data.success) { 
                 alert("Senha redefinida com sucesso!");
                 // Redirecione para a página de login ou outra página, se necessário
-                window.location.href = 'views/login/login.php'; 
+                window.location.href = 'views/login/index.php'; 
             } else {
                 alert("Erro ao redefinir a senha. Tente novamente.");
             }

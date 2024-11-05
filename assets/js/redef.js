@@ -8,7 +8,7 @@ document.getElementById("sendButton").addEventListener("click", function() {
     }
 
     
-    fetch('http//localhost/api/password/reset/code', { //Endereço da Rota
+    fetch('http//localhost:8010/api/password/reset/code', { //Endereço da Rota
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

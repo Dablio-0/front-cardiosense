@@ -1,7 +1,7 @@
 // Função para carregar dados do perfil da API
 async function carregarPerfil() {
     try {
-        const response = await fetch('https://sua-api-endpoint.com/perfil');
+        const response = await fetch('https://localhost:8010/api/perfil');
         if (response.ok) {
             const perfil = await response.json();
             document.getElementById('name').value = perfil.nome;

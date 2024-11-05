@@ -1,0 +1,348 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #d1e8f4;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    max-width: 50px;
+    height: auto;
+}
+
+.brand-slogan {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.brand-name {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.slogan {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 240px;
+}
+
+.header-icons button, .header-icons .icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #4c8bf5;
+    font-size: 1.5em;
+    transition: color 0.2s, transform 0.2s;
+    margin: 0 5px;
+}
+
+.header-icons button:hover, .header-icons .icon:hover {
+    color: #3a76c5;
+    transform: scale(1.1);
+}
+
+.logout-button, .security-question-button {
+    background-color: transparent;
+    color: #4c8bf5;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 20px;
+    font-size: 1em;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.logout-button:hover, .security-question-button:hover {
+    color: #3a76c5;
+    transform: scale(1.1);
+}
+
+/* Monitoramento */
+.monitoramento {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #d1e8f4;
+}
+
+.monitoramento h2 {
+    font-size: 1.8em;
+    color: #4c8bf5;
+    margin-bottom: 20px;
+}
+
+.monitoramento p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.btn-adicionar, .btn-voltar {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s, box-shadow 0.3s; 
+}
+
+.btn-adicionar:hover, .btn-voltar:hover {
+    background-color: #218838;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.btn-voltar {
+    background-color: #007bff;
+}
+
+.btn-voltar:hover {
+    background-color: #0056b3;
+}
+
+
+.btn-editar, .btn-deletar {
+    background-color: #4c8bf5; 
+    color: white; 
+    border: none;
+    padding: 8px 12px; 
+    border-radius: 5px; 
+    cursor: pointer;
+    margin: 0 5px; 
+    transition: background-color 0.3s, transform 0.2s; 
+}
+
+.btn-editar {
+    background-color: #ffc107; 
+}
+
+.btn-editar:hover {
+    background-color: #e0a800; 
+}
+
+.btn-deletar {
+    background-color: #dc3545; 
+}
+
+.btn-deletar:hover {
+    background-color: #c82333; 
+}
+/* Estilos para botões */
+.btn-editar {
+    background-color: #ffc107; 
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-editar:hover {
+    background-color: #f3c742; 
+}
+
+.btn-deletar {
+    background-color: #f44336; 
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-deletar:hover {
+    background-color: #e53935; 
+}
+
+
+/* Formulário de Cadastro */
+.popup {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 300px;
+}
+
+.popup h3 {
+    color: #4c8bf5;
+    margin-bottom: 15px;
+}
+
+.popup label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.popup input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.popup button {
+    background-color: #4c8bf5;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.popup button:hover {
+    background-color: #3a76c5;
+}
+
+/* Menu de Perfil */
+.profile-container {
+    position: relative; 
+}
+
+.profile-menu {
+    display: none; 
+    position: absolute;
+    top: 35px; 
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 1000; 
+}
+
+.profile-menu a {
+    display: block; 
+    color: #4c8bf5;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.profile-menu a:hover {
+    background-color: #f0f0f0; 
+}
+
+/* Estilos para a Tabela de Monitoramento */
+.family-monitor {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+    background-color: #4c8bf5;
+    color: #fff;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    font-weight: bold;
+    font-size: 1em;
+}
+
+tbody tr {
+    transition: background-color 0.3s; 
+}
+
+tbody tr:hover {
+    background-color: #f0f0f0; 
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 768px) {
+    .header-icons {
+        width: 200px;
+    }
+
+    .chart-container {
+        width: 90%;
+    }
+
+    table {
+        width: 95%;
+    }
+
+    th, td {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .popup {
+        width: 90%;
+    }
+
+    .monitoramento h2 {
+        font-size: 1.5em;
+    }
+
+    .monitoramento p {
+        font-size: 1em;
+    }
+}
