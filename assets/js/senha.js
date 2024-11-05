@@ -3,7 +3,7 @@ document.getElementById("saveButton").addEventListener("click", function() {
     var confirmPassword = document.getElementById("confirmPassword").value;
 
     if (newPassword === confirmPassword) {
-        fetch('http//localhost/api/password/reset/confirm', {  // Certifique-se de que o endereço está correto
+        fetch('http//localhost:8010/api/password/reset/confirm', {  // Certifique-se de que o endereço está correto
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -48,7 +48,7 @@ document.getElementById('calcular-imc').addEventListener('click', function() {
 // Enviar a imagem em Base64 para a API
 async function enviarImagemBase64(base64Image) {
     try {
-        const response = await fetch('https://sua-api-endpoint.com/upload', {
+        const response = await fetch('https://localhost:8010/api/upload', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ async function alterar() {
     }
 
     try {
-        const response = await fetch('https://sua-api-endpoint.com/perfil', {
+        const response = await fetch('https://localhost:8010/api/perfil', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -25,7 +25,7 @@ async function login() {
 
     try {
         // Envia dados para a API
-        const response = await fetch('http://localhost/api/login', { 
+        const response = await fetch('http://localhost:8010/api/login', { 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

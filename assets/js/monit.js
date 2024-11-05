@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (nameInput.value && ageInput.value && familyRelationInput.value) {
             try {
                 // Faz a requisição para a API para obter o batimento cardíaco
-                const response = await fetch("http://localhost/api/heartbeat", {
+                const response = await fetch("http://localhost:8010/api/heartbeat", {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",

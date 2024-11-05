@@ -26,7 +26,7 @@
                     </button>
                     <div class="profile-menu" id="profileMenu">
                         <a href="../../views/user/perfilUsuario.php">Acessar Perfil</a>
-                        <a href="../../views/login/login.php" class="logout-button">Sair</a>
+                        <a href="../../views/login/index.php" class="logout-button">Sair</a>
                     </div>
                 </div>
             </div>

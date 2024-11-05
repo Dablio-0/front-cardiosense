@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function renderHistorico() {
-    fetch('http://<URL_DA_API>/historico') // Substitua pela URL real da sua API
+    fetch('http://localhost:8010/api/historico') 
         .then(response => response.json())
         .then(data => {
             const tabela = document.getElementById('historicoTabela');
