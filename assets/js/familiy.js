@@ -1,4 +1,13 @@
+function tokenValidation() {
+    const token = localStorage.getItem("token");
+    if (!token) {
+        window.location.href = '../../index.html';
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+    tokenValidation();
+
     const profileIcon = document.querySelector(".profile-container");
     const profileMenu = document.querySelector("#profileMenu");
     let currentEditRow = null;

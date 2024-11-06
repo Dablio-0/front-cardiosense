@@ -50,7 +50,9 @@ async function cadastrar() {
 
         if (response.ok) {
             const result = await response.json();
+            console.log('Resposta da API:', result);
             alert('Cadastro realizado com sucesso!');
+            window.location.href = '../../index.html';
         } else {
             alert('Erro ao realizar cadastro. Tente novamente.');
         }

@@ -39,7 +39,7 @@ document.getElementById("saveButton").addEventListener("click", function() {
 
     if (newPassword === confirmPassword) {
       
-        fetch('localhost:8010/api/password/reset/code', { 
+        fetch('localhost:80/api/password/reset/code', { 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

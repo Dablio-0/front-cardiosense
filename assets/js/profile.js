@@ -1,7 +1,14 @@
+function tokenvalidation(){
+    const token = localStorage.getItem('token');
+    if (!token) {
+        window.location.href = '../../index.html';
+    }
+}
+
 // Função para carregar dados do perfil da API
 async function carregarPerfil() {
     try {
-        const response = await fetch('https://localhost:8010/api/perfil');
+        const response = await fetch('https://localhost:80/api/user/profile');
         if (response.ok) {
             const perfil = await response.json();
             document.getElementById('name').value = perfil.nome;
@@ -84,7 +91,7 @@ async function alterar() {
     }
 
     try {
-        const response = await fetch('https://localhost:8010/api/perfil', {
+        const response = await fetch('https://localhost:80/api/user/update', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -1,3 +1,10 @@
+function tokenValidation(){
+    const token = localStorage.getItem('token');
+    if (!token) {
+        window.location.href = '../../index.html';
+    }
+}
+
 // Inicializa o gráfico
 const ctx = document.getElementById('batimentosChart').getContext('2d');
 const batimentosChart = new Chart(ctx, {
@@ -85,6 +92,7 @@ document.addEventListener('click', () => {
 
 // Executa a consulta de batimentos ao carregar a página
 document.addEventListener('DOMContentLoaded', () => {
+    tokenValidation();
     const secao = 'Consulta';
     updateRecentSections(secao);
     consultarRitmo(); // Chama a função para consultar batimentos ao carregar
