@@ -15,11 +15,15 @@
         <p>Precisão em cada batida</p>
 
         <div class="input-group">
-            <input type="password" id="newPassword" placeholder="Nova Senha" required>
+            <input type="password" placeholder="Senha" id="password" required>
+            <i class="toggle-password fas fa-eye" title="Visualizar senha" onclick="togglePasswordVisibility('password', this)"></i>
         </div>
+
         <div class="input-group">
-            <input type="password" id="confirmPassword" placeholder="Confirme a Nova Senha" required>
+            <input type="password" placeholder="Confirmar Senha" id="confirm-password" required>
+            <i class="toggle-password fas fa-eye" title="Visualizar senha" onclick="togglePasswordVisibility('confirm-password', this)"></i>
         </div>
+
         <button id="saveButton">Salvar</button>
 
         <script src="../../assets/js/senha.js"></script>

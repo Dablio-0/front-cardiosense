@@ -26,40 +26,14 @@ body {
     animation: fadeInScale 1s forwards;
 }
 
-@keyframes fadeInScale {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.container img {
-    width: 100px;
-    margin-bottom: 15px;
-}
-
-.container h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    text-decoration: underline;
-}
-
-.container p {
-    font-size: 12px;
-    color: #666;
-    margin-bottom: 20px;
-}
-
 .input-group {
     margin-bottom: 15px;
+    position: relative; /* Necessário para o ícone dentro do campo */
 }
+
 .input-group input {
     width: 100%;
-    padding: 12px 35px;
+    padding: 12px 35px; /* Ajuste para espaço suficiente para o ícone */
     border: 1px solid #ddd;
     border-radius: 25px;
     border-color: black;
@@ -78,6 +52,18 @@ body {
 .input-group input:focus {
     border-color: black;
 }
+
+.input-group .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #00AEEF;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
 .container button {
     width: 100%;
     padding: 12px;
@@ -93,4 +79,20 @@ body {
 .container button:hover {
     background-color: #005f80;
     transform: scale(1.02);
+}
+
+.container img {
+    width: 100px;
+    margin-bottom: 15px;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }

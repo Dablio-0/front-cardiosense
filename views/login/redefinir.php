@@ -18,7 +18,7 @@
             <input type="email" id="securityAnswer" placeholder="Insira seu Email" required>
         </div>
         <button id="sendButton">Enviar</button>
-        <a href="../../views/login/index.php" class="btn">Voltar</a>
+        <a href="front-cardiosense/index.php" class="btn">Voltar</a>
     </div>
 
     <script src="../../assets/js/redef.js"></script>

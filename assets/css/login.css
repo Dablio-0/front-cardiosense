@@ -87,7 +87,7 @@ body {
     font-size: 14px;
     font-weight: lighter;
     transition: border-color 0.3s;
-    color: #FFFFFF;
+    color: #000000;
 }
 
 .input-group input::placeholder {

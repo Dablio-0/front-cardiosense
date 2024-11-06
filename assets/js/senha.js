@@ -15,7 +15,7 @@ document.getElementById("saveButton").addEventListener("click", function() {
             if (data.success) { 
                 alert("Senha redefinida com sucesso!");
                 // Redirecione para a página de login ou outra página, se necessário
-                window.location.href = 'views/login/index.php'; 
+                window.location.href = 'front-cardiosense/index.php'; 
             } else {
                 alert("Erro ao redefinir a senha. Tente novamente.");
             }
@@ -28,3 +28,17 @@ document.getElementById("saveButton").addEventListener("click", function() {
         alert("As senhas não coincidem. Tente novamente.");
     }
 });
+
+function togglePasswordVisibility(fieldId, iconElement) {
+    const passwordField = document.getElementById(fieldId);
+    const isPasswordVisible = passwordField.type === "text";
+
+    // Altera o tipo do campo entre texto e senha
+    passwordField.type = isPasswordVisible ? "password" : "text";
+    
+    // Troca os ícones de olho
+    iconElement.classList.toggle("fa-eye");
+    iconElement.classList.toggle("fa-eye-slash");
+}
+
+
