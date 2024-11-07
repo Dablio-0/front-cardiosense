@@ -111,5 +111,7 @@ async function alterar() {
     }
 }
 
-
-window.onload = carregarPerfil;
+window.onload = () => {
+    tokenvalidation();
+    carregarPerfil();
+};

@@ -1,4 +1,9 @@
-
+function tokenValidation() {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        window.location.href = '../../index.html';
+    }
+}
 function toggleProfileMenu(event) {
     event.stopPropagation();
     const profileMenu = document.getElementById('profileMenu');

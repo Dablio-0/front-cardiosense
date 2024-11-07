@@ -1,31 +1,41 @@
-document.getElementById("sendButton").addEventListener("click", function() {
+document.getElementById("sendButton").addEventListener("click", async function() {
     var email = document.getElementById("securityAnswer").value;
 
-    
     if (!email) {
         alert("Por favor, insira um email.");
         return;
     }
 
+    console.log('Email:', email);
     
-    fetch('http//localhost:8010/api/password/reset/code', { //Endereço da Rota
+    await fetch('http://localhost:80/api/password/reset/code', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email: email })
+        body: JSON.stringify({ email })
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.exists) { 
-            document.getElementById("popupOverlay").style.display = "flex";
+    .then(response => {
+        if (response.ok) {
+            Swal.fire({
+                title: 'Sucesso!',
+                text: 'Código enviado com sucesso. Verifique seu email.',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
         } else {
-            alert("Email não encontrado. Tente novamente.");
+            Swal.fire({
+                title: 'Erro!',
+                text: 'Erro ao enviar o código. Tente novamente.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
         }
+        return response.json();
     })
     .catch(error => {
         console.error('Erro:', error);
-        alert("Erro ao tentar acessar.");
+        alert('Erro de comuicação com a API.');
     });
 });
 
@@ -33,13 +43,13 @@ document.getElementById("closePopupButton").addEventListener("click", function()
     document.getElementById("popupOverlay").style.display = "none";
 });
 
-document.getElementById("saveButton").addEventListener("click", function() {
+document.getElementById("saveButton").addEventListener("click", async function() {
     var newPassword = document.getElementById("newPassword").value;
     var confirmPassword = document.getElementById("confirmPassword").value;
 
     if (newPassword === confirmPassword) {
       
-        fetch('localhost:80/api/password/reset/code', { 
+        await fetch('http://localhost:80/api/password/reset/code', { 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -63,3 +73,5 @@ document.getElementById("saveButton").addEventListener("click", function() {
         alert("As senhas não coincidem. Tente novamente.");
     }
 });
+
+
