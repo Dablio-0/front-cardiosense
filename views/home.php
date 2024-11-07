@@ -2,28 +2,28 @@
 <?php
 session_start();
 
-// Inicializar seções acessadas se não estiverem setadas
-if (!isset($_SESSION['secoes_acessadas'])) {
-    $_SESSION['secoes_acessadas'] = [];
-}
+// // Inicializar seções acessadas se não estiverem setadas
+// if (!isset($_SESSION['secoes_acessadas'])) {
+//     $_SESSION['secoes_acessadas'] = [];
+// }
 
-// Adicionar uma seção acessada quando a página for carregada
-if (isset($_GET['secao'])) {
-    $secao = htmlspecialchars($_GET['secao']);
+// // Adicionar uma seção acessada quando a página for carregada
+// if (isset($_GET['secao'])) {
+//     $secao = htmlspecialchars($_GET['secao']);
     
-    // Adicionar a nova seção no início da lista
-    if (!in_array($secao, $_SESSION['secoes_acessadas'])) {
-        array_unshift($_SESSION['secoes_acessadas'], $secao);
-    } else {
-        // Se a seção já existe, movê-la para o início
-        $_SESSION['secoes_acessadas'] = array_diff($_SESSION['secoes_acessadas'], [$secao]);
-        array_unshift($_SESSION['secoes_acessadas'], $secao);
-    }
-}
+//     // Adicionar a nova seção no início da lista
+//     if (!in_array($secao, $_SESSION['secoes_acessadas'])) {
+//         array_unshift($_SESSION['secoes_acessadas'], $secao);
+//     } else {
+//         // Se a seção já existe, movê-la para o início
+//         $_SESSION['secoes_acessadas'] = array_diff($_SESSION['secoes_acessadas'], [$secao]);
+//         array_unshift($_SESSION['secoes_acessadas'], $secao);
+//     }
+// }
 
-// Recuperando as seções acessadas
-$secoes_acessadas = $_SESSION['secoes_acessadas'];
-?>
+// // Recuperando as seções acessadas
+// $secoes_acessadas = $_SESSION['secoes_acessadas'];
+// ?>
 
 
 
@@ -56,7 +56,7 @@ $secoes_acessadas = $_SESSION['secoes_acessadas'];
                     </button>
                     <div class="profile-menu" id="profileMenu">
                         <a href="../views/user/perfilUsuario.php">Acessar Perfil</a>
-                        <a href="../views/login/index.php" class="logout-button">Sair</a>
+                        <button class="logout-button" onclick="logout()">Sair</button>
                     </div>
                 </div>
             </div>

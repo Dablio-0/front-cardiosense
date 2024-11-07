@@ -57,3 +57,39 @@ function renderSections() {
         });
     }
 }
+
+async function logout() {
+
+    try {
+        const user = JSON.parse(localStorage.getItem('user'));
+        const userId = user ? user.id : null;
+        const token = localStorage.getItem('token');
+
+        console.log('Usuário:', userId);
+        console.log('Token:', token);
+
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+
+        if (!userId || !token) {
+            console.error('Usuário ou token não encontrado');
+            return;
+        }
+
+        const response = await fetch(`http://localhost:80/api/logout/${userId}`, {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+            }
+        });
+        if (response.ok) {
+            console.log('Logout bem-sucedido');
+            window.location.href = 'http://localhost:8010/front-cardiosense/';
+        } else {
+            console.error('Erro ao fazer logout');
+        }
+    } catch (error) {
+        console.error('Erro ao fazer logout:', error);
+    }
+}

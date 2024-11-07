@@ -30,9 +30,7 @@
         <a href="views/login/cadastro.php" class="signup-link">Ainda não tem uma conta? Crie uma agora</a>
     </div>
 
-   
-
-
-    <script src="../../assets/js/login.js"></script>
+   <!-- import the JavaScript file -->
+    <script src="assets/js/login.js"></script>
 </body>
 </html>
