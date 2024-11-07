@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+/* document.addEventListener("DOMContentLoaded", function() {
     tokenValidation(); // Validar o token de acesso ao carregar a página
 });
 
@@ -9,7 +9,7 @@ function tokenValidation() {
         window.location.href = "front-cardiosense/index.php";
     }
 }
-
+*/
 // Toggle para o menu de perfil
 function toggleProfileMenu(event) {
     event.stopPropagation();
@@ -21,15 +21,50 @@ document.addEventListener("click", () => {
     document.getElementById("profileMenu").style.display = "none";
 });
 
+ocument.addEventListener("DOMContentLoaded", function() {
+    loadRelatives(); 
+});
+
+function loadRelatives() {
+    fetch('https://sua-api.com/parentes') 
+        .then(response => response.json())
+        .then(data => {
+            populateRelativesSelect(data);
+        })
+        .catch(error => {
+            console.error("Erro ao carregar parentes:", error);
+            alert("Houve um erro ao carregar os parentes.");
+        });
+}
+
+function populateRelativesSelect(relatives) {
+    const selectElement = document.getElementById("relativeSelect");
+    selectElement.innerHTML = ''; 
+
+    const defaultOption = document.createElement("option");
+    defaultOption.value = '';
+    defaultOption.textContent = 'Selecione um parente';
+    selectElement.appendChild(defaultOption);
+
+    relatives.forEach(relative => {
+        const option = document.createElement("option");
+        option.value = relative.id; 
+        option.textContent = relative.nome;
+        selectElement.appendChild(option);
+    });
+}
+
 function filterReports() {
-    // Pega a data selecionada
     const selectedDate = document.getElementById("dateSelect").value;  
     if (!selectedDate) {
         alert("Por favor, selecione uma data.");
         return;
     }
+    const date = document.getElementById('dateSelect').value;
+    const relative = document.getElementById('relativeSelect').value;
+    console.log('Data selecionada:', date);
+    console.log('Parente selecionado:', relative);
 
-    // Simulando dados com base na data selecionada
     const exampleData = {
         date: selectedDate,
         heartRates: [72, 78, 80, 76, 82, 88, 85, 90, 86, 84, 81, 79, 76, 74, 73, 70],
@@ -38,30 +73,28 @@ function filterReports() {
             "09:00", "09:10", "09:20", "09:30", "09:40", "09:50", 
             "10:00", "10:10", "10:20", "10:30"
         ],
-        averageBPM: 77.2 // Batimento médio para esse exemplo
+        averageBPM: 77.2
     };
 
-    loadChart(exampleData);    // Carregar o gráfico com os dados simulados
-    showReportDetails(exampleData); // Exibir os detalhes da consulta
+    loadChart(exampleData);    
+    showReportDetails(exampleData); 
 }
 
-// Função para carregar o gráfico de batimentos cardíacos
 function loadChart(data) {
     const ctx = document.getElementById("heartRateChart").getContext("2d");
-    if (window.heartRateChart) window.heartRateChart.destroy();  // Destruir o gráfico anterior se houver
-
+   
     window.heartRateChart = new Chart(ctx, {
-        type: "line",  // Tipo do gráfico (linha)
+        type: "line", 
         data: {
-            labels: data.times,  // Horários das medições
+            labels: data.times,  
             datasets: [{
                 label: "Batimentos por Minuto (BPM)",
-                data: data.heartRates,  // Batimentos para cada horário
-                borderColor: "#4c8bf5",  // Cor da linha
-                backgroundColor: "rgba(76, 139, 245, 0.2)",  // Cor de fundo
-                borderWidth: 2,  // Largura da linha
-                fill: true,  // Preencher área sob a linha
-                tension: 0.4  // Curvatura da linha
+                data: data.heartRates, 
+                borderColor: "#4c8bf5",  
+                backgroundColor: "rgba(76, 139, 245, 0.2)",  
+                borderWidth: 2, 
+                fill: true,  
+                tension: 0.4  
             }]
         },
         options: {
@@ -84,7 +117,6 @@ function loadChart(data) {
     });
 }
 
-// Função para exibir detalhes da consulta
 function showReportDetails(data) {
     const detailsContainer = document.getElementById("reportDetails");
     detailsContainer.innerHTML = `

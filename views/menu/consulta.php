@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../assets/css/cons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="shortcut icon" href="../../assets/images/cardioicon.ico" type="image/x-icon">
-     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
@@ -36,8 +36,18 @@
     <main>
         <div class="filter-container">
             <h2>Filtrar Consulta</h2>
-            <label for="dateSelect">Selecione a data:</label>
-            <input type="date" id="dateSelect" class="filter-input">
+            <div class="filter-row">
+                <div class="filter-input-wrapper">
+                    <label for="dateSelect">Selecione a data:</label>
+                    <input type="date" id="dateSelect" class="filter-input">
+                </div>
+                <div class="filter-input-wrapper">
+                    <label for="relativeSelect">Selecione um parente:</label>
+                    <select id="relativeSelect" class="filter-input">
+                        <option value="">Carregando...</option>
+                    </select>
+                </div>
+            </div>
             <button class="filter-button" onclick="filterReports()">Buscar Consulta</button>
         </div>
 
@@ -51,13 +61,9 @@
                     <p>Selecione uma consulta para ver os detalhes.</p>
                 </div>
             </div>
-            
         </div>
     </main>
-  
-   
-    
-  
+
     <script src="../../assets/js/cons.js"></script>
 </body>
 </html>
