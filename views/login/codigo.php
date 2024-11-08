@@ -80,7 +80,6 @@
             <input type="text" maxlength="1" oninput="moveToNext(this, 'code5')" id="code4">
             <input type="text" maxlength="1" oninput="moveToNext(this, 'code6')" id="code5">
             <input type="text" maxlength="1" id="code6">
-            <input type="hidden" id="emailField" value="<?php echo $_GET['email'] ?>">
         </div>
         
         <!-- Alteração no botão para "onclick" -->
@@ -90,6 +89,10 @@
 
     <script src="../../assets/js/redef.js"></script>
     <script>
+        // Função para pegar o email da URL e armazenar em uma variável
+        const urlParams = new URLSearchParams(window.location.search);
+        const email = urlParams.get('email');
+
         // Função para mover automaticamente para o próximo campo
         function moveToNext(current, nextFieldID) {
             if (current.value.length >= 1) {
@@ -100,16 +103,16 @@
         // Função para coletar o código e enviar (exemplo)
         function submitCode() {
             let code = '';
+
+            // Coletar os valores dos campos de código
             for (let i = 1; i <= 6; i++) {
                 code += document.getElementById('code' + i).value;
             }
 
-            // pegar o email que está na rota
-
-            if (!code) {
+            if (!code || !email) { // Validação se email está presente
                 Swal.fire({
                     title: 'Erro!',
-                    text: 'Por favor, insira o código de verificação.',
+                    text: 'Por favor, insira o código de verificação e o email.',
                     icon: 'error',
                     timer: 1500,
                     showConfirmButton: false
@@ -119,53 +122,49 @@
 
             console.log('Email:', email);
             console.log('Código:', code);
-            try {
-                fetch('http://localhost:80/api/password/reset/code/verify', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ email: email, reset_code: code })
-                })
-                .then(response => {
-                    if (response.ok) { 
-                        Swal.fire({
-                            title: 'Sucesso!',
-                            text: 'Código verificado com sucesso.',
-                            icon: 'success',
-                            timer: 1500,
-                            showConfirmButton: false
-                        });
-                        // Correção de 'windows' para 'window'
-                        window.location.href = "http://localhost:8010/front-cardiosense/views/login/redefinir.php";
-                    } else {
-                        Swal.fire({
-                            title: 'Erro!',
-                            text: 'Código inválido ou expirado. Tente novamente.',
-                            icon: 'error',
-                            timer: 1500,
-                            showConfirmButton: false
-                        });
-                    }
-                })
-                .catch(error => {
-                    console.error('Erro:', error);
+
+            // Enviar a requisição para o backend
+            fetch('http://localhost:80/api/password/reset/code/verify', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: email, reset_code: code }) // Incluindo o email
+            })
+            .then(response => response.json()) // Primeiro converte a resposta em JSON
+            .then(data => { // Agora trata os dados JSON
+                if (data.status) { // Verifica status no JSON retornado
+                    Swal.fire({
+                        title: 'Sucesso!',
+                        text: 'Seu código de verificação foi verificado com sucesso.',
+                        icon: 'success',
+                        timer: 1500,
+                        showConfirmButton: false
+                    });
+
+                    // Redirecionar para a tela de redefinição de senha
+                    window.location.href = 'http://localhost:8010/front-cardiosense/views/login/senha.php?email=' + email;
+                } else {
                     Swal.fire({
                         title: 'Erro!',
-                        text: 'Ocorreu um erro no envio do código.',
+                        text: data.message || 'Ocorreu um erro ao verificar o código. Por favor, tente novamente.',
                         icon: 'error',
-                        showConfirmButton: true
+                        timer: 1500,
+                        showConfirmButton: false
                     });
-                });
-            } catch (error) {
+                }
+            })
+            .catch(error => {
                 console.error('Erro:', error);
                 Swal.fire({
                     title: 'Erro!',
-                    text: 'Ocorreu um erro ao processar a solicitação.',
+                    text: 'Não foi possível conectar ao servidor. Tente novamente mais tarde.',
                     icon: 'error',
-                    showConfirmButton: true
+                    timer: 1500,
+                    showConfirmButton: false
                 });
-            }
+            });
+
         }
     </script>
 </body>

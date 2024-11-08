@@ -58,7 +58,7 @@
             <button type="submit">Cadastrar</button>
         </form>
 
-        <a href="/index.php" >Já possui uma conta? Faça login</a>
+        <a href="../../index.php" >Já possui uma conta? Faça login</a>
     </div>
 
     <script src="../../assets/js/cad.js"></script>

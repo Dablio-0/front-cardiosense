@@ -12,9 +12,12 @@
 <body>
     <div id="pageContent" class="container">
         <img src="../../assets/images/logo.png" alt="CardioSense Logo">
-        <h1>CARDIOSENSE</h1>
-        <p>Precisão em cada batida</p>
-
+        <h3>CARDIOSENSE</h3>
+        <h4>Precisão em cada batida</h4>
+        <h2>Recuperação de Senha</h2>
+        <p>Insira uma senha nova e repita a mesma senha para confirmar.</p>
+        <p>A senha deve conter no mínimo 8 caracteres. Utilize letras maiúsculas, minúsculas, números e símbolos especiais.</p>
+        <br>
         <div class="input-group">
             <input type="password" placeholder="Senha" id="password" required>
             <i class="toggle-password fas fa-eye" title="Visualizar senha" onclick="togglePasswordVisibility('password', this)"></i>
@@ -26,6 +29,7 @@
         </div>
 
         <button id="saveButton">Salvar</button>
+        <a href="../../index.php" class="btn">Voltar</a>
 
         <script src="../../assets/js/senha.js"></script>
     </div>
