@@ -36,17 +36,10 @@ async function login() {
         // Verifica a resposta da API
         if (response.ok) {
             const result = await response.json();
-            console.log('Resposta da API:', result);
-
             // Salva o token no LocalStorage
             localStorage.setItem('token', result.token);
             localStorage.setItem('user', JSON.stringify(result.user));
-
-            // Redireciona para a página home
-            console.log('Redirecionando para a página home...');
-            alert('Login realizado com sucesso!');
-            window.location.href = "../../views/home.php";
-           
+            window.location.href = 'http://localhost:8010/front-cardiosense/views/home.php';           
         } else if (response.status === 401) {
             alert('Email ou senha incorretos. Tente novamente.');
         } else {

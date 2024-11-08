@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="assets/css/login.css">
     <link rel="shortcut icon" href="assets/images/cardioicon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>CardioSense Login</title>
 </head>
 <body>
@@ -30,9 +31,7 @@
         <a href="views/login/cadastro.php" class="signup-link">Ainda não tem uma conta? Crie uma agora</a>
     </div>
 
-   
-
-
-    <script src="../../assets/js/login.js"></script>
+   <!-- import the JavaScript file -->
+    <script src="assets/js/login.js"></script>
 </body>
 </html>

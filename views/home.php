@@ -2,28 +2,28 @@
 <?php
 session_start();
 
-// Inicializar seções acessadas se não estiverem setadas
-if (!isset($_SESSION['secoes_acessadas'])) {
-    $_SESSION['secoes_acessadas'] = [];
-}
+// // Inicializar seções acessadas se não estiverem setadas
+// if (!isset($_SESSION['secoes_acessadas'])) {
+//     $_SESSION['secoes_acessadas'] = [];
+// }
 
-// Adicionar uma seção acessada quando a página for carregada
-if (isset($_GET['secao'])) {
-    $secao = htmlspecialchars($_GET['secao']);
+// // Adicionar uma seção acessada quando a página for carregada
+// if (isset($_GET['secao'])) {
+//     $secao = htmlspecialchars($_GET['secao']);
     
-    // Adicionar a nova seção no início da lista
-    if (!in_array($secao, $_SESSION['secoes_acessadas'])) {
-        array_unshift($_SESSION['secoes_acessadas'], $secao);
-    } else {
-        // Se a seção já existe, movê-la para o início
-        $_SESSION['secoes_acessadas'] = array_diff($_SESSION['secoes_acessadas'], [$secao]);
-        array_unshift($_SESSION['secoes_acessadas'], $secao);
-    }
-}
+//     // Adicionar a nova seção no início da lista
+//     if (!in_array($secao, $_SESSION['secoes_acessadas'])) {
+//         array_unshift($_SESSION['secoes_acessadas'], $secao);
+//     } else {
+//         // Se a seção já existe, movê-la para o início
+//         $_SESSION['secoes_acessadas'] = array_diff($_SESSION['secoes_acessadas'], [$secao]);
+//         array_unshift($_SESSION['secoes_acessadas'], $secao);
+//     }
+// }
 
-// Recuperando as seções acessadas
-$secoes_acessadas = $_SESSION['secoes_acessadas'];
-?>
+// // Recuperando as seções acessadas
+// $secoes_acessadas = $_SESSION['secoes_acessadas'];
+// ?>
 
 
 
@@ -36,6 +36,7 @@ $secoes_acessadas = $_SESSION['secoes_acessadas'];
     <link rel="stylesheet" href="../assets/css/inicial.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="shortcut icon" href="../assets/images/cardioicon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <header>
@@ -55,8 +56,8 @@ $secoes_acessadas = $_SESSION['secoes_acessadas'];
                         <i class="fas fa-user"></i>
                     </button>
                     <div class="profile-menu" id="profileMenu">
-                        <a href="../views/user/perfilUsuario.php">Acessar Perfil</a>
-                        <a href="../views/login/index.php" class="logout-button">Sair</a>
+                        <a href="../views/user/perfilUsuario.php">Acessar Perfil</a> <!--DEIXAR O IGUAL OS BOTÕES -->
+                        <button class="logout-button" onclick="logout()">Sair</button>
                     </div>
                 </div>
             </div>
