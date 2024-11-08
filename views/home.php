@@ -56,7 +56,7 @@ session_start();
                         <i class="fas fa-user"></i>
                     </button>
                     <div class="profile-menu" id="profileMenu">
-                        <a href="../views/user/perfilUsuario.php">Acessar Perfil</a>
+                        <a href="../views/user/perfilUsuario.php">Acessar Perfil</a> <!--DEIXAR O IGUAL OS BOTÕES -->
                         <button class="logout-button" onclick="logout()">Sair</button>
                     </div>
                 </div>

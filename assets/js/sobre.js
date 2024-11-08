@@ -1,7 +1,8 @@
 function tokenValidation() {
     const token = localStorage.getItem('token');
     if (!token) {
-        window.location.href = '../../index.html';
+        localStorage.clear();
+        window.location.href = 'http://localhost:8010/front-cardiosense/index.php';
     }
 }
 function toggleProfileMenu(event) {
