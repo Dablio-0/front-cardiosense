@@ -1,7 +1,8 @@
 function tokenValidation() {
     const token = localStorage.getItem('token');
     if (!token) {
-        window.location.href = '../../index.html';
+        localStorage.clear();
+        window.location.href = 'http://localhost:8010/front-cardiosense/index.php';
     }
 }
 
@@ -55,5 +56,46 @@ function renderSections() {
             li.textContent = secao;
             sectionList.appendChild(li);
         });
+    }
+}
+
+async function logout() {
+
+    try {
+        const user = JSON.parse(localStorage.getItem('user'));
+        const userId = user ? user.id : null;
+        const token = localStorage.getItem('token');
+
+        console.log('Usuário:', userId);
+        console.log('Token:', token);
+
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+
+        if (!userId || !token) {
+            console.error('Usuário ou token não encontrado');
+            return;
+        }
+
+        const response = await fetch(`http://localhost:80/api/logout/${userId}`, {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+            }
+        });
+        if (response.ok) {
+            console.log('Logout bem-sucedido');
+            window.location.href = 'http://localhost:8010/front-cardiosense/';
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro',
+                text: 'Ocorreu um erro ao fazer logout. Tente novamente.',
+                confirmButtonText: 'OK'
+            });
+        }
+    } catch (error) {
+        console.error('Erro ao fazer logout:', error);
     }
 }

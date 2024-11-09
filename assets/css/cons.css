@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -6,9 +7,10 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #d1e8f4;
+    background-color: #d1e8f4; 
     color: #333;
 }
+
 
 header {
     display: flex;
@@ -25,7 +27,7 @@ header {
 }
 
 .logo {
-    max-width: 50px;
+    max-width: 50px; 
     height: auto;
 }
 
@@ -36,8 +38,8 @@ header {
 }
 
 .brand-name {
-    font-size: 1.2em;
-    font-weight: bold;
+    font-size: 1.2em; 
+    font-weight: bold; 
 }
 
 .slogan {
@@ -48,57 +50,59 @@ header {
 .header-actions {
     display: flex;
     align-items: center;
-    margin-right: 20px;
+    margin-right: 20px; 
 }
 
 .header-icons {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 240px;
+    width: 240px; 
 }
 
 .header-icons button {
     background: none;
     border: none;
     cursor: pointer;
-    color: #4c8bf5;
-    font-size: 1.5em;
-    transition: color 0.2s, transform 0.2s;
-    margin: 0 5px;
+    color: #4c8bf5; 
+    font-size: 1.5em; 
+    transition: color 0.2s, transform 0.2s; 
+    margin: 0 5px; 
 }
 
 .header-icons button:hover {
-    color: #3a76c5;
-    transform: scale(1.1);
+    color: #3a76c5; 
+    transform: scale(1.1); 
 }
 
+/* Menu de Perfil */
 .profile-container {
-    position: relative;
+    position: relative; 
 }
 
 .profile-menu {
-    display: none;
+    display: none; 
     position: absolute;
-    top: 35px;
+    top: 35px; 
     right: 0;
     background-color: #fff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     padding: 10px;
-    z-index: 1000;
+    z-index: 1000; 
 }
 
 .profile-menu a {
-    display: block;
+    display: block; 
     color: #4c8bf5;
     text-decoration: none;
     padding: 10px;
 }
 
 .profile-menu a:hover {
-    background-color: #f0f0f0;
+    background-color: #f0f0f0; 
 }
+
 
 main {
     padding: 50px 20px;
@@ -107,39 +111,27 @@ main {
     background-color: #d1e8f4;
 }
 
-/* Filtro Ajustado */
+/* Filtro */
 .filter-container {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     background-color: #f8f9fc;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    margin: 20px auto;
+    max-width: 300px;
+    margin: 30px auto;
 }
 
 .filter-container h2 {
     color: #4c8bf5;
-    margin-bottom: 15px;
-    font-size: 1.2em;
-}
-
-.filter-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 15px;
-    width: 100%;
-}
-
-.filter-input-wrapper {
-    flex: 1;
-    min-width: 160px;
+    margin-bottom: 10px;
 }
 
 .filter-input {
     padding: 8px;
+    margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1em;
@@ -148,13 +140,13 @@ main {
 
 .filter-button {
     margin-top: 10px;
-    padding: 12px;
+    padding: 10px;
     background-color: #4c8bf5;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1.1em;
+    font-size: 1em;
     width: 100%;
     transition: background-color 0.2s;
 }
@@ -163,79 +155,51 @@ main {
     background-color: #3a76c5;
 }
 
+/* Contêiner de Relatório */
 .report-container {
     display: flex;
     gap: 30px;
     padding: 30px;
     background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     max-width: 1200px;
     margin: 30px auto;
-    flex-wrap: wrap;
 }
 
 .chart-section {
-    flex: 6;
-    min-width: 600px;
-    height: 500px;
+    flex: 3;
 }
 
 .info-section {
-    flex: 3;
-    padding: 25px;
+    flex: 2;
+    padding: 20px;
     background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     color: #333;
-    height: 500px;
 }
 
 .info-section h2 {
-    font-size: 1.5em;
+    font-size: 1.4em;
     color: #4c8bf5;
     border-bottom: 2px solid #4c8bf5;
     padding-bottom: 5px;
     margin-bottom: 10px;
 }
 
-.chart-section canvas {
-    width: 100% !important;
-    height: 100% !important;
-    border-radius: 8px;
+#reportDetails p {
+    margin-bottom: 10px;
+    font-size: 1em;
 }
+
+
 
 /* Responsividade */
 @media (max-width: 768px) {
-    .report-container {
-        flex-direction: column;
-        padding: 20px;
-    }
+    
 
-    .chart-section {
-        flex: 1;
-        min-width: 100%;
-        height: 300px;
-    }
-
-    .info-section {
-        flex: 1;
-        min-width: 100%;
-        padding: 20px;
-        height: auto;
-    }
-
-    .filter-container {
-        max-width: 100%;
-        margin: 20px 0;
-    }
-
-    .filter-row {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .filter-input-wrapper {
-        width: 100%;
+    .header-icons button {
+        margin-left: 10px; 
     }
 }

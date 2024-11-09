@@ -34,30 +34,65 @@ async function cadastrar() {
         return;
     }
 
+    // Aplica regex para padrão de senha forte
+    var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    
+    console.log('password value:', password);
+    console.log('confirm-password value:', confirmPassword);
+    
+    if (!passwordRegex.test(password)) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro',
+            text: 'A senha deve conter pelo menos 8 caracteres, incluindo letras maiúsculas e minúsculas, um número e um caractere especial.',
+            confirmButtonText: 'OK'
+        })
+        return;
+    }
+
     if (password !== confirmPassword) {
         alert('As senhas não correspondem.');
         return;
     }
 
+    // Formata a data para o formato d/m/y
+    const [year, month, day] = dataNascimento.split('-');
+    const formattedDate = `${day}/${month}/${year}`;
+
     try {
-        const response = await fetch('http://localhost:8010/api/register', {
+        const response = await fetch('http://localhost:80/api/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ nome, email, dataNascimento, sexo, password }),
+            body: JSON.stringify({ name: nome, email: email, date_birth: formattedDate, sex: sexo, password: password, password_confirmation: confirmPassword })
         });
 
+        const result = await response.json();
+
         if (response.ok) {
-            const result = await response.json();
             console.log('Resposta da API:', result);
-            alert('Cadastro realizado com sucesso!');
-            window.location.href = '../../index.php';
+            Swal.fire({
+                icon: 'success',
+                title: 'Sucesso',
+                text: 'Cadastro realizado com sucesso!',
+                confirmButtonText: 'OK'
+            }).then(() => {
+                window.location.href = 'http://localhost:8010/front-cardiosense/index.php';
+            });
         } else {
-            alert('Erro ao realizar cadastro. Tente novamente.');
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro',
+                text: 'Erro ao realizar o cadastro. Tente novamente.',
+                confirmButtonText: 'OK'
+            }).then(() => {
+                window.location.reload();
+            });
         }
     } catch (error) {
-        alert('Erro na comunicação com a API.');
+        console.error('Erro:', error);
+        alert('Erro de comunicação com a API.');
     }
 }
 
