@@ -26,7 +26,7 @@ document.getElementById("sendButton").addEventListener("click", async function()
         } else {
             Swal.fire({
                 title: 'Erro!',
-                text: 'Erro ao enviar o código. Tente novamente.',
+                text: 'Erro ao enviar o código. Verifique seu email e tente novamente.',
                 icon: 'error',
                 confirmButtonText: 'OK'
             });
@@ -59,10 +59,24 @@ document.getElementById("saveButton").addEventListener("click", async function()
         .then(response => response.json())
         .then(data => {
             if (data.success) { 
-                alert("Senha redefinida com sucesso!");
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Sucesso',
+                    text: 'Senha redefinida com sucesso!',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    window.location.href = 'http://localhost:8010/front-cardiosense/index.php';
+                });
                 document.getElementById("popupOverlay").style.display = "none";
             } else {
-                alert("Erro ao redefinir a senha. Tente novamente.");
+                Swak.fire({
+                    icon: 'error',
+                    title: 'Erro',
+                    text: 'Ocorreu um erro ao redefinir a senha. Tente novamente.',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    window.location.reload();
+                });
             }
         })
         .catch(error => {

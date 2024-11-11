@@ -8,77 +8,103 @@ function tokenValidation(){
 
 // Inicializa o gráfico
 const ctx = document.getElementById('batimentosChart').getContext('2d');
-const batimentosChart = new Chart(ctx, {
+const heartRateChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: [],
+        labels: [], // Rótulos de tempo (minuto:segundo)
         datasets: [{
-            label: 'Batimentos Cardíacos por Minuto (BPM)',
-            data: [],
-            backgroundColor: 'rgba(0, 123, 255, 0.2)',
-            borderColor: '#007bff',
+            label: 'Batimentos por Minuto (bpm)',
+            data: [], // Dados dos batimentos
+            borderColor: 'rgba(255, 99, 132, 1)',
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
             borderWidth: 2,
-            pointBackgroundColor: '#007bff'
+            fill: true,
         }]
     },
     options: {
         responsive: true,
         scales: {
             x: {
-                title: {
-                    display: true,
-                    text: 'Tempo (s)',
-                    color: '#007bff'
-                },
-                ticks: {
-                    color: '#007bff'
-                }
+                title: { display: true, text: 'Tempo (min:seg)' }
             },
             y: {
-                beginAtZero: false,
-                title: {
-                    display: true,
-                    text: 'Batimentos por Minuto (BPM)',
-                    color: '#007bff'
-                },
-                ticks: {
-                    color: '#007bff'
-                }
+                title: { display: true, text: 'Batimentos (bpm)' },
+                beginAtZero: true
             }
         }
     }
 });
 
-// Função para consultar o ritmo atual do ESP32
-async function consultarRitmo() {
+
+// Função para atualizar o gráfico com dados da API
+async function updateChart() {
     try {
-        const response = await fetch(`http://localhost:80/api`); 
-        if (!response.ok) throw new Error('Network response was not ok');
+        const response = await fetch('http://localhost:80/api/monitor/data/bpm', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        });
+
+        if (!response.ok) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro',
+                text: 'Erro ao buscar os dados do gráfico.',
+                confirmButtonText: 'OK'
+            }).then(() => {
+                window.location.href = 'http://localhost:8010/front-cardiosense/views/home.php';
+            });
+            return;
+        }
+
         const data = await response.json();
-        const bpm = data.bpm;
-        atualizarDados(bpm);
+
+        // Organiza dados para o gráfico
+        const newLabels = [];
+        const newData = [];
+
+        const values = Object.values(data);
+
+        console.log('Dados:', values);
+        if (values.length === 0) {
+            console.log('Nenhum dado encontrado');
+            return;
+        }
+
+        values.forEach(value => {
+            newLabels.push(`${value.minute}:${value.second}`);
+            newData.push(value.bpm);
+        });
+
+        console.log('Labels:', newLabels);
+        console.log('Data:', newData);
+
+        if (newLabels.length === 0) {
+            console.log('Nenhum dado encontrado');
+            return;
+        }
+
+        if (newLabels.length > 10) {
+            newLabels.shift();
+            newData.shift();
+        }
+
+        
+
+        // Atualiza o gráfico com novos dados
+        heartRateChart.data.labels = newLabels;
+        heartRateChart.data.datasets[0].data = newData;
+        heartRateChart.update();
     } catch (error) {
-        console.error('Erro ao conectar ao ESP32:', error);
-        alert('Não foi possível conectar ao ESP32. Tente novamente.');
+        console.error('Erro ao atualizar o gráfico:', error);
     }
 }
 
-// Função para atualizar os dados no gráfico
-function atualizarDados(bpm) {
-    const labels = batimentosChart.data.labels;
-    const data = batimentosChart.data.datasets[0].data;
-    const timestamp = labels.length; 
-    labels.push(timestamp);
-    data.push(bpm);
+setInterval(updateChart, 15000);
 
-    // Limita os dados do gráfico para os últimos 30 registros
-    if (labels.length > 30) {
-        labels.shift();
-        data.shift();
-    }
-
-    batimentosChart.update();
-}
+updateChart();
 
 // Toggle para o menu de perfil
 function toggleProfileMenu(event) {
@@ -95,16 +121,6 @@ document.addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', () => {
     tokenValidation();
     const secao = 'Consulta';
-    updateRecentSections(secao);
-    consultarRitmo(); // Chama a função para consultar batimentos ao carregar
 });
-
-function updateRecentSections(secao) {
-    let sections = JSON.parse(localStorage.getItem('secoes_acessadas')) || [];
-    sections = sections.filter(item => item !== secao);
-    sections.unshift(secao);
-    if (sections.length > 5) sections.pop(); 
-    localStorage.setItem('secoes_acessadas', JSON.stringify(sections));
-}
 
 

@@ -41,14 +41,34 @@ async function login() {
             localStorage.setItem('user', JSON.stringify(result.user));
             window.location.href = 'http://localhost:8010/front-cardiosense/views/home.php';           
         } else if (response.status === 401) {
-            alert('Email ou senha incorretos. Tente novamente.');
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro',
+                text: 'Email ou senha incorretos.',
+                confirmButtonText: 'OK'
+            });
+
         } else {
             console.error('Erro ao enviar dados para a API:', response.statusText);
-            alert('Erro ao realizar login. Tente novamente mais tarde.');
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro',
+                text: 'Erro ao enviar dados para a API.',
+                confirmButtonText: 'OK'
+            }).then(() => {
+                window.location.reload();
+            });
         }
     } catch (error) {
         console.error('Erro na comunicação com a API:', error);
-        alert('Erro na comunicação com a API.');
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro',
+            text: 'Erro na comunicação com a API.',
+            confirmButtonText: 'OK'
+        }).then(() => {
+            window.location.reload();
+        });
     }
 }
 

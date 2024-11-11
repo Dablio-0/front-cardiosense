@@ -51,7 +51,12 @@ async function cadastrar() {
     }
 
     if (password !== confirmPassword) {
-        alert('As senhas não correspondem.');
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro',
+            text: 'As senhas não coincidem. Tente novamente.',
+            confirmButtonText: 'OK'
+        })
         return;
     }
 
@@ -87,7 +92,7 @@ async function cadastrar() {
                 text: 'Erro ao realizar o cadastro. Tente novamente.',
                 confirmButtonText: 'OK'
             }).then(() => {
-                window.location.reload();
+                window.location.reload(); 
             });
         }
     } catch (error) {
