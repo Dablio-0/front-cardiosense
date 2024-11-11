@@ -29,9 +29,14 @@
         </div>
 
         <button id="saveButton">Salvar</button>
-        <a href="../../index.php" class="btn">Voltar</a>
+        <button id="backButton" class="btn">Voltar</button>
 
         <script src="../../assets/js/senha.js"></script>
+        <script>
+        document.getElementById('backButton').addEventListener('click', function() {
+            window.location.href = '../../index.php';
+        });
+    </script>
     </div>
 </body>
 </html>

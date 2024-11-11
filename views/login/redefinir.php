@@ -17,12 +17,18 @@
         <h2>Recuperação de Senha</h2>
         <br>
         <div class="input-group">
-            <i class="icon fas fa-envelope"></i> <!-- COLOCAR O ICONE DENTRO DO INPUT -->
+            <i class="icon fas fa-envelope"></i>
             <input type="email" id="securityAnswer" placeholder="Insira seu Email" required>
         </div>
-        <button id="sendButton">Enviar</button> <!-- INVERTER TAMBÉM AS CORES NESSE BOTÃO IGUAL AO BOTÃO DE VOLTAR -->
-        <a href="../../index.php" class="btn">Voltar</a>
+        <button id="sendButton" class="btn">Enviar</button>
+        <button id="backButton" class="btn">Voltar</button>
     </div>
+
+    <script>
+        document.getElementById('backButton').addEventListener('click', function() {
+            window.location.href = '../../index.php';
+        });
+    </script>
 
     <script src="../../assets/js/redef.js"></script>
 </body>

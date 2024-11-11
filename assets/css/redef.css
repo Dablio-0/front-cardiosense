@@ -51,16 +51,17 @@ body {
     margin-bottom: 20px;
 }
 
-.label {
-    margin-top: 15px;
-    margin-bottom: 5px;
-    font-size: 14px;
-    color: #333;
-}
-
 .input-group {
     margin-bottom: 15px;
     position: relative;
+}
+
+.input-group i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #00AEEF;
 }
 
 .input-group input {
@@ -74,9 +75,8 @@ body {
     font-size: 14px;
     font-weight: lighter;
     transition: border-color 0.3s;
-    color: black;
+    color: #000000;
 }
-
 .input-group input::placeholder {
     color: black;
 }
@@ -85,7 +85,8 @@ body {
     border-color: black;
 }
 
-.container button, .popup button, .btn {
+
+.container button, .btn {
     width: 100%;
     padding: 12px;
     border: none;
@@ -94,13 +95,11 @@ body {
     color: white;
     font-size: 16px;
     cursor: pointer;
-    text-align: center;
     transition: background-color 0.3s, transform 0.3s;
-    display: inline-block;
 }
 
 .btn {
-    background-color: transparent;
+    background-color: #fff;
     border: 2px solid #00AEEF;
     color: #00AEEF;
     margin-top: 10px;
@@ -108,7 +107,7 @@ body {
 
 .btn:hover {
     background-color: #00AEEF;
-    color: white;
+    color: #fff;
     transform: scale(1.02);
 }
 

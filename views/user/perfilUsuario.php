@@ -24,7 +24,7 @@
         <section class="profile">
             <div class="profile-content">
                 <div class="profile-picture">  
-                    <img src="../../assets/images/profile-pic.png" alt="" class="profile-pic" id="profilePicPreview">
+                    <img src="../../assets/images/profile-pic-removebg-preview.png" alt="" class="profile-pic" id="profilePicPreview">
                     <input type="file" id="change-pic" accept="image/*" title="Clique para alterar a foto de perfil" style="display: none;">
                 </div>
                 <button class="custom-file-upload" onclick="document.getElementById('change-pic').click();">Escolher Foto</button>
