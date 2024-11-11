@@ -12,7 +12,7 @@
 <body>
     <div id="pageContent" class="container">
         <img src="../../assets/images/logo.png" alt="CardioSense Logo">
-        <h1>CARDIOSENSE</h1>
+        <h4>CARDIOSENSE</h1>
         <p>Precisão em cada batida</p>
         <h2>Recuperação de Senha</h2>
         <br>
