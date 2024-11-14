@@ -14,15 +14,16 @@ Please, to run the project, follow the instructions below.
 
 3. In your browser, access the project using the URL `http://localhost:8010/front-cardiosense`
 
-To see how configure the backend API, please access the README.md file in this repository: 
+## Team Members
 
-[https://github.com/Dablio-0/api-cardiosense]
+- Wellington de Elias Rodrigues (Backend, DBs, Infrastructure) [Dablio-0](https://github.com/Dablio-0)
+- Matheus Gonçalves Prado Ribeiro (Frontend, UI/UX) [MatheusCosta19](https://github.com/MatheusCosta19)
+- Leonardo Fontanive Tonet (Prototype and Embbeded System)[f0ntCODE](https://github.com/f0ntCODE)
 
-## Authors
+To see another information from other layers of the project, please visit the following repositories:
 
-- Wellington de Elias Rodrigues (Backend, DBs and Infrastructure)
-- Matheus Gonçalve Ribeiro Prado Costa (Frontend & Design)
-- Leonardo Fontanive Tonet (Prototype and Embbeded System)
+- [Backend](https://github.com/Dablio-0/api-cardiosense)
+- [Prototype](https://github.com/f0ntCODE/CardioSense_ESP32)
 
 ## License
 
