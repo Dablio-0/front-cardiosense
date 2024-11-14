@@ -21,7 +21,7 @@ To see how configure the backend API, please access the README.md file in this r
 ## Authors
 
 - Wellington de Elias Rodrigues (Backend, DBs and Infrastructure)
-- Matheus Gonçalve Ribeiro Prado Costa (Frontend)
+- Matheus Gonçalve Ribeiro Prado Costa (Frontend & Design)
 - Leonardo Fontanive Tonet (Prototype and Embbeded System)
 
 ## License
